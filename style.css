@@ -10,7 +10,9 @@ body{
 header{
     width: 100%;
     height: 70px;
-    position: fixed;
+    /* position: fixed; */
+    display: flex;
+    justify-content: space-between;
     top: 0;
     background-color: #fff;
     overflow: hidden;
@@ -152,7 +154,7 @@ header .nav ul li a:hover{
 /*Section Three Start */
 .section3{
     width: 100%;
-    height: 650px;
+    /* height: 650px; */
     margin: 0 auto;
     text-align: center;
 }
@@ -166,22 +168,12 @@ header .nav ul li a:hover{
     margin: 0 auto;
 }
 .service{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 80%;
     margin: 0 auto;
-    padding-top: 45px;
-}
-.ser1, .ser2{
-    width: 100%;
-    overflow: hidden;
-}
-.ser2{
-    padding-top: 30px;
-}
-.ser1 div, .ser2 div{
-    width: 32%;
-    float: left;
-    padding: 5px;
-    margin: 0 auto;
+    padding-top: 50px;
+    gap: 30px;
 }
 .service i{
     font-size: 45px;
@@ -193,29 +185,17 @@ header .nav ul li a:hover{
 .service p{
     color: rgba(0,0,0,0.6);
 }
-.ser1 div:hover{
+.service div:hover{
     background-color: #8293ff;
     color: white;
 }
-.ser1 div:hover i{
+.service div:hover i{
     color: white;
 }
-.ser1 div:hover h1{
+.service div:hover h1{
     color: white;
 }
-.ser1 div:hover p{
-    color: white;
-}
-.ser2 div:hover{
-    background-color: #8293ff;
-}
-.ser2 div:hover i{
-    color: white;
-}
-.ser2 div:hover h1{
-    color: white;
-}
-.ser2 div:hover p{
+.service div:hover p{
     color: white;
 }
 /*Section Three End */
@@ -226,15 +206,15 @@ header .nav ul li a:hover{
     height: 300px;
     background-color: #8293ff;
 }
-.section4 div{
-    float: left;
-    width: 20%;
-    margin: 0 auto;
-    position: relative;
-    top: 100px;
-    left: 200px;
-    overflow: hidden;
+.section4__container{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
+
 .section4 h1{
     font-size: 45px;
     line-height: 0px;
@@ -266,9 +246,8 @@ header .nav ul li a:hover{
 .section5 .img__container{
     width: 75%;
     height: auto;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
 }
 .section5 .img__container div{
@@ -303,8 +282,9 @@ header .nav ul li a:hover{
 /*Pricing Table Start*/
 .section6{
     width: 100%;
-    height: 700px;
+    
     padding-top:50px ;
+    margin: 80px 0;
 }
 .section6 .text4{
     text-align: center;
@@ -321,7 +301,8 @@ header .nav ul li a:hover{
 .section6 .card{
     width: 75%;
     height: auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: space-between;
     margin: 0 auto;
 }
@@ -367,18 +348,20 @@ header .nav ul li a:hover{
 footer{
     background-color: rgb(4,9,30);
     width: 100%;
-    height: 400px;
+    height: 50%;
     position: absolute;
     color: white;
-    margin-top: 200px;
+    margin-top: 50px;
 }
+
 footer .foot{
-    width: 80%;
     height: auto;
-    display: flex;
-    justify-content: space-around;
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 100px;
+    gap: 80px;
 }
 footer .foot .foot1 p{
     color: rgba(255,255,255,0.5);
@@ -408,4 +391,81 @@ footer .foot .foot1 i:hover{
 }
 /*Footer End*/
 
+
 /* responsive part */
+@media only screen and (max-width:576px) {
+    header .logo{
+        margin: 0;
+        padding: 20px;
+    }
+    .nav{
+        display: none;
+    }
+    .section1{
+        flex-direction: column-reverse;
+        height: 100%;
+        margin-top: 20px;
+        padding: 30px;
+    }
+    .half1{
+        margin: 0;
+        width: 100%;
+    }
+    .section2{
+        flex-direction: column;
+        height: 100%;
+        margin-top: 20px;
+    }
+    .section2 div{
+        width: 100%;
+        padding: 30px;
+    }
+    .section2 .img2{
+        padding: 10px;
+    }
+    .first__text h1{
+        font-size: 2rem;
+    }
+    .first__text p{
+        width: 100%;
+    }
+    .service, .section4__container, .section6 .card, footer .foot{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .section4{
+        height: 100vh;
+    }
+    .section5 .img__container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    footer{
+        height: 100vh;
+    }
+    footer .foot1{
+        width: 100%;
+        margin: 0 auto;   
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:992px){
+    .nav{
+        display: none;
+    }
+    .section6 .card{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .service{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .section5 .img__container{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        
+    }
+    footer{
+        height: 100vh;
+    }
+    footer .foot{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
